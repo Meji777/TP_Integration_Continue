@@ -64,31 +64,16 @@
         </style>
     </head>
     <body>
-        <?php
-        session_start();
-        if(isset($destroy)){
-            session_destroy();
-        }
-        if(isset($login)){
-            $_SESSION['login'] = $login;
-            echo 'Vous êtes connectez sous '.$_SESSION['login'];
-        }
-        
-        if(!isset($_SESSION['login'])){?>
         <form action="/login" method="post">
             @csrf
             login:<br>
-            <input type="text" name="login"><br>
+            <input type="text" name="firstname"><br>
             mdp:<br>
             <input type="password" name="mdp"><br>
-            <button type='submit'>Se connecter</button>
+            Confirmer mdp:<br>
+            <input type="password" name="Confirmmdp"><br>
+            <button type='submit'>Envoyer</button>
         </form>
-        <a href="/CreateUser" ><button> Nouvel utilisateur ? </button></a>
-    <?php }else{?>
-        <form action="/Deconnexion" method="post">
-            @csrf
-            <button type='submit'>Se déconnecter</button>
-        </form>
-        <?php } ?>
+        <a href="/" ><button> retour </button></a>
     </body>
 </html>

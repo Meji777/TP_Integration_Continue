@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/login', 'Helper@verifProfil', function () {
+
+Route::post('/login','Helper@LogUser', function () {
     return view('Accueil');
 });
 
-Route::get('/' , 'Helper@verifProfil', function () {
+Route::post('/Deconnexion','Helper@UnLogUser', function () {
+    return view('Accueil');
+});
+
+Route::get('/CreateUser', function () {
+    return view('FormUser');
+});
+
+Route::get('/' , function () {
     return view('Accueil');
 });
